@@ -5,7 +5,7 @@ export default function WelcomeScreen() {
   return (
     <ImageBackground
       style={styles.background}
-      source={require("../assets/wScreen.jpg")}
+      source={require("../assets/Welcome_Screen_2.jpg")}
     >
       <View style={styles.loginButton}></View>
       <View style={styles.registerButton}></View>
