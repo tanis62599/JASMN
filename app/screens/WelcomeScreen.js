@@ -1,39 +1,47 @@
-import React from "react";
-import {
-  StyleSheet,
-  Text,
-  View,
-  Image,
-  ImageBackground,
-  Dimensions,
-} from "react-native";
+import React, { Component } from "react";
+import { StyleSheet, Text, View, ImageBackground, Image } from "react-native";
 
 import colors from "../config/colors";
 import CButton from "../custom_components/CButton";
 import Spacer from "../custom_components/Spacer";
+import SignUpScreen from "./SignUpScreen";
 
-export default function WelcomeScreen() {
-  const images = ["wScreen.jpg", "Welcome_Screen_2.jpg"];
-  return (
-    <ImageBackground
-      resizeMode="cover"
-      style={styles.background}
-      source={require("../assets/wScreen.jpg")}
-    >
-      <Image source={require("../assets/logo_1.png")} style={styles.logo} />
-      <View style={styles.buttonContainer}>
-        <CButton onPress={doSomething} title="log in" color={colors.primary} />
-        <Spacer />
-        <CButton
-          onPress={() => {
-            console.log("hello");
-          }}
-          title="Register"
-          color={colors.secondary}
-        />
-      </View>
-    </ImageBackground>
-  );
+class WelcomeScreen extends React.Component {
+  constructor(props) {
+    super(props);
+    console.log(props);
+  }
+  render() {
+    return (
+      <ImageBackground
+        resizeMode="cover"
+        style={styles.background}
+        source={require("../assets/wScreen.jpg")}
+      >
+        <Image source={require("../assets/logo_1.png")} style={styles.logo} />
+
+        <View style={styles.buttonContainer}>
+          <CButton
+            onPress={() => {
+              this.props.navigation.navigate("Login");
+            }}
+            title="log in"
+            color={colors.primary}
+          />
+
+          <Spacer />
+
+          <CButton
+            onPress={() => {
+              this.props.navigation.navigate("Sign Up");
+            }}
+            title="Sign Up"
+            color={colors.secondary}
+          />
+        </View>
+      </ImageBackground>
+    );
+  }
 }
 
 const styles = StyleSheet.create({
@@ -55,9 +63,9 @@ const styles = StyleSheet.create({
   },
   logo: {
     position: "absolute",
-    height: 250,
-    width: 250,
-    top: 70,
+    height: 200,
+    width: 200,
+    top: 80,
   },
 
   registerButton: {
@@ -67,6 +75,4 @@ const styles = StyleSheet.create({
   },
 });
 
-function doSomething() {
-  console.log("i did something");
-}
+export default WelcomeScreen;

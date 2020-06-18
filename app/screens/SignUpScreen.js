@@ -5,7 +5,7 @@ function SignUpScreen(props) {
   return (
     <ImageBackground
       style={styles.background}
-      source={require("../assets/SignUpBGND.jpeg")}
+      source={require("../assets/SignUpBGND.jpg")}
       opacity={0.7}
       blurRadius={0.35}
 
